@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>麵茶茶館客服</title>
+</head>
+<body>
+    <h1>麵茶茶館客服</h1>
+    <input type="text" id="query" placeholder="輸入問題">
+    <button onclick="search()">Search</button>
+    <p id="result"></p>
+
+    <script>
+        function search() {
+            var query = document.getElementById('query').value;
+            var url = 'https://script.google.com/macros/s/AKfycbx1Yqb50ocmtuHYIN0OfgCCZxYjnCze0gLb9CTzptol0lW9V8CgGAUIhXOJfQ6ckEvgdQ/exec?q=' + encodeURIComponent(query);
+
+            fetch(url)
+                .then(response => response.text())
+                .then(text => document.getElementById('result').innerText = text)
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
